@@ -34,8 +34,9 @@ split_data <- function(data, outcome, size) {
   }
 
   return(list(
-    train_data = train_data, 
-    test_data = test_data))
+    train_data = train_data,
+    test_data = test_data
+  ))
 }
 
 #' @name get_metrics
@@ -46,18 +47,20 @@ split_data <- function(data, outcome, size) {
 #' @return List of confusion matrix, balanced accuracy, chance level, and binomial test
 #' @export
 metrics <- function(actual, predicted) {
-
   cnf_table <- tibble(actual, predicted)
   cnf_matrix <- table(cnf_table)
   w <- 1
-  balanced_accuracy <- (sum(diag(cnf_matrix) / (cnf_matrix |> 
-    rowSums()) * w) / (cnf_matrix |> 
-      nrow()))
+  balanced_accuracy <- (sum(diag(cnf_matrix) / (cnf_matrix |>
+    rowSums()) * w) / (cnf_matrix |>
+    nrow()))
   chance <- 1 / (cnf_matrix |> nrow())
 
   trials <- sum(cnf_matrix)
   successes <- sum(diag(cnf_matrix))
-  h_test <- binom.test(successes, trials, alternative = "greater", conf.level = 0.95)
+  h_test <- binom.test(successes, trials,
+    p = chance,
+    alternative = "greater", conf.level = 0.95
+  )
   return(list(
     confusion_matrix = cnf_matrix,
     balanced_accuracy = balanced_accuracy,
@@ -65,4 +68,3 @@ metrics <- function(actual, predicted) {
     binomial_test = h_test
   ))
 }
-

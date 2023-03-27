@@ -1,0 +1,13 @@
+Package: ordtools
+Title: Ordinal regression tools
+Version: 0.0.0.9000
+Authors@R: 
+    person("Lincoln", "Colling", , "lincoln@colling.net.net", role = c("aut", "cre"))
+Description: Helper functions for ordinal regression
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    dplyr,
+    tibble

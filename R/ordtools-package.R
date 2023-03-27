@@ -7,6 +7,7 @@
 #' @importFrom dplyr mutate
 #' @importFrom dplyr sample_n
 #' @importFrom dplyr ungroup
+#' @importFrom stats binom.test
 #' @importFrom tibble tibble
 ## usethis namespace: end
 NULL

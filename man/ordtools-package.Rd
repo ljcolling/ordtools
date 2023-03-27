@@ -6,7 +6,7 @@
 \alias{ordtools-package}
 \title{ordtools: Ordinal regression tools}
 \description{
-Helper functions for ordinal regression
+Helper functions for ordinal regression. Splits data and generates metrics.
 }
 \author{
 \strong{Maintainer}: Lincoln Colling \email{lincoln@colling.net.net}

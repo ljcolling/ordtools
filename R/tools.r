@@ -1,3 +1,10 @@
+#' @name split_data
+#' @title Split Data
+#' @description Split data into training and test data
+#' @param data Dataframe
+#' @param outcome Outcome variable
+#' @param size Number of observations in test data
+#' @return List of training and test data
 #' @export
 split_data <- function(data, outcome, size) {
   if (typeof(outcome) == "character") {
@@ -31,6 +38,12 @@ split_data <- function(data, outcome, size) {
     test_data = test_data))
 }
 
+#' @name get_metrics
+#' @title Get Metrics
+#' @description Get metrics and confusion matrix
+#' @param actual Actual values
+#' @param predicted Predicted values
+#' @return List of confusion matrix, balanced accuracy, chance level, and binomial test
 #' @export
 metrics <- function(actual, predicted) {
 

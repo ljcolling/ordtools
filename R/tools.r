@@ -10,6 +10,7 @@ split_data <- function(data, outcome, size) {
   if (typeof(outcome) == "character") {
     outcome <- as.name(outcome)
   }
+  # set the random seed for reproducibility
   set.seed(12345)
   test_data <- data |>
     # mutate({{ outcome }} := factor({{ outcome }}), levels = seq(-3,3,1)) |>

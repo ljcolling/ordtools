@@ -10,6 +10,7 @@ split_data <- function(data, outcome, size) {
   if (typeof(outcome) == "character") {
     outcome <- as.name(outcome)
   }
+  set.seed(12345)
   test_data <- data |>
     # mutate({{ outcome }} := factor({{ outcome }}), levels = seq(-3,3,1)) |>
     group_by({{ outcome }}) |>
@@ -39,7 +40,7 @@ split_data <- function(data, outcome, size) {
   ))
 }
 
-#' @name get_metrics
+#' @name metrics
 #' @title Get Metrics
 #' @description Get metrics and confusion matrix
 #' @param actual Actual values
